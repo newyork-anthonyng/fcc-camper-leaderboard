@@ -25,6 +25,7 @@ const App = React.createClass({
 			const users = this.formatUsersInfo(data);
 
 			this.setState({users: users});
+			this.setState({sortByAllTimePoints: false});
 		});
 	},
 
@@ -33,6 +34,7 @@ const App = React.createClass({
 			const users = this.formatUsersInfo(data);
 
 			this.setState({users: users});
+			this.setState({sortByAllTimePoints: true});
 		});
 	},
 
@@ -95,11 +97,13 @@ const RowHeader = React.createClass({
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Camper Name {this.props.sortByAllTimePoints ? 'All Time' : 'Past 30 Days'}</th>
+					<th>Camper Name</th>
 					<th
+						className={this.props.sortByAllTimePoints ? '' : 'active'}
 						onClick={this.props.onPointsInPastMonthClick}
 					>Points in past 30 days</th>
 					<th
+						className={this.props.sortByAllTimePoints ? 'active' : ''}
 						onClick={this.props.onPointsAllTimeClick}
 					>All time points</th>
 				</tr>
@@ -114,7 +118,7 @@ const UserList = React.createClass({
 			<tr key={index}>
 				<td>{index + 1}</td>
 				<td>
-					<img src={user.img} alt={user.name + ' Profile Picture'}></img>
+					<img className='profile-picture' src={user.img} alt={user.name + ' Profile Picture'}></img>
 					{user.name}
 				</td>
 				<td>{user.pointsInPastMonth}</td>

@@ -1,0 +1,56 @@
+$background-color: #006400;
+$secondary-color: #974B0F;
+
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+header {
+	background-color: $background-color;
+	color: white;
+	padding: 16px;
+	text-align: center;
+
+	h1 {
+		font-weight: 300;
+	}
+}
+
+table {
+	border: 1px solid gray;
+	border-collapse: collapse;
+	width: 100%;
+
+	th, td {
+		border: 1px solid gray;
+		font-weight: 300;
+	}
+
+	td:nth-child(1),
+	td:nth-child(3),
+	td:nth-child(4) {
+		text-align: center;
+	}
+
+	thead {
+		tr {
+			height: 70px;
+		}
+
+		th:nth-child(3),
+		th:nth-child(4) {
+			cursor: pointer;
+		}
+	}
+}
+
+.active {
+	background-color: $secondary-color;
+	color: white;
+}
+
+.profile-picture {
+	height: 80px;
+	margin-right: 16px;
+	width: 80px;
+}
